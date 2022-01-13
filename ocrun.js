@@ -48,7 +48,13 @@ function broadcastevent(data) {
 	var broadcast_tcp_port = process.env.BROADCAST_SERVICE_TCP_PORT || 29784;
 	var target = process.env.CONTAINER_IP_ADDR || networkInterfaces[firstNotLoIface][0].address;
         var buri = "ws://" + target + ":" + broadcast_tcp_port;
-    	var ws = new WebSocketClient(buri);
+	var headers = {};
+        if (process.env.BROADCAST_COOKIE) {
+                // console.log( 'add broadcast_cookie: ' + process.env.BROADCAST_COOKIE );
+                headers = { 'broadcast_cookie': process.env.BROADCAST_COOKIE };
+        }
+        // WebSocketClient { 'headers': headers } only in nodejs
+        var ws = new WebSocketClient(buri, null, { 'headers': headers } );
 
     	ws.on('open', function open() {
         	try {
