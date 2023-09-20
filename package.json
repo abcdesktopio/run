@@ -5,6 +5,7 @@
   "version": "0.0.5",
   "description": "Node.js Open Desktop warapper to run app in container",
   "author": "Alexandre DEVELY",
+  "license": "GNU GPL 2",
   "dependencies": {
     "ws": "*"
   }
