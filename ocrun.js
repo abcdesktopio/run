@@ -87,11 +87,15 @@ for (var i=2; i<process.argv.length; ++i) {
 	args += process.argv[i];
 }
 
+// Read env vars
 var pod_name = process.env.POD_NAME;
 var pod_namespace = process.env.POD_NAMESPACE;
+var execmode = process.env.EXECMODE;
+var launch = process.env.LAUNCH;
 firstNotLoIface=getEth0OrFirstNotLoIface();
 
-var data = { method: method, data:{ 'image': image, 'args':args, 'pod_name': pod_name, 'pod_namespace': pod_namespace }};
+var data = { method: method, data:{ 'launch': launch, 'execmode': execmode, 'image': image, 'args':args, 'pod_name': pod_name, 'pod_namespace': pod_namespace }};
+
 logme( data );
 broadcastevent( data );
 
