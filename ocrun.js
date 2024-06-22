@@ -54,7 +54,7 @@ function broadcastevent(data) {
                 headers = { 'broadcast_cookie': process.env.BROADCAST_COOKIE };
         }
         // WebSocketClient { 'headers': headers } only in nodejs
-        var ws = new WebSocketClient(buri, null, { 'headers': headers } );
+        var ws = new WebSocketClient(buri, undefined, { 'headers': headers } );
 
     	ws.on('open', function open() {
         	try {
