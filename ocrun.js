@@ -30,6 +30,7 @@ const networkInterfaces = os.networkInterfaces();
 let firstNotLoIface = '';
 
 // This should always return eth0
+// get Eth0 Or First inteface Not Loopback Inteface
 function getEth0OrFirstNotLoIface(){
         if('eth0' in networkInterfaces) return 'eth0';
 
@@ -89,13 +90,15 @@ for (var i=2; i<process.argv.length; ++i) {
 }
 
 // Read env vars
-var pod_name = process.env.POD_NAME;
-var pod_namespace = process.env.POD_NAMESPACE;
-var execmode = process.env.EXECMODE;
-var launch = process.env.LAUNCH;
+const pod_name = process.env.POD_NAME;
+const pod_namespace = process.env.POD_NAMESPACE;
+const execmode = process.env.EXECMODE;
+const launch = process.env.LAUNCH;
+
+// get Eth0 Or First inteface Not Loopback Inteface
 firstNotLoIface=getEth0OrFirstNotLoIface();
 
-var data = { method: method, data:{ 'launch': launch, 'execmode': execmode, 'image': image, 'args':args, 'pod_name': pod_name, 'pod_namespace': pod_namespace }};
+const data = { method: method, data:{ 'launch': launch, 'execmode': execmode, 'image': image, 'args':args, 'pod_name': pod_name, 'pod_namespace': pod_namespace }};
 
 logme( data );
 broadcastevent( data );
