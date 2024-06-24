@@ -12,7 +12,7 @@
 * Author: abcdesktop.io team
 * Software description: cloud native desktop service
 */
-var method = 'ocrun';
+const method = 'ocrun';
 
 var fs = require('fs');
 var util = require('util');
