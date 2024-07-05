@@ -12,8 +12,8 @@
 * Author: abcdesktop.io team
 * Software description: cloud native desktop service
 */
+const DEFAULT_EXECMODE;
 const method = 'ocrun';
-
 var fs = require('fs');
 var util = require('util');
 const path = require('path');
@@ -92,7 +92,7 @@ for (var i=2; i<process.argv.length; ++i) {
 // Read env vars
 const pod_name = process.env.POD_NAME;
 const pod_namespace = process.env.POD_NAMESPACE;
-const execmode = process.env.EXECMODE;
+const execmode = process.env.EXECMODE || DEFAULT_EXECMODE;
 const launch = process.env.LAUNCH;
 
 // get Eth0 Or First inteface Not Loopback Inteface
