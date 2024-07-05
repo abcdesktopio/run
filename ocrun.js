@@ -78,7 +78,7 @@ if (process.argv.length < 2) {
 	process.exit(1);	
 }
 
-var image = path.basename(process.argv[1]);
+const image = path.basename(process.argv[1]);
 var args;
 
 for (var i=2; i<process.argv.length; ++i) {
@@ -93,7 +93,9 @@ for (var i=2; i<process.argv.length; ++i) {
 const pod_name = process.env.POD_NAME;
 const pod_namespace = process.env.POD_NAMESPACE;
 const execmode = process.env.EXECMODE || DEFAULT_EXECMODE;
-const launch = process.env.LAUNCH;
+const launch = process.env.LAUNCH || image;
+
+
 
 // get Eth0 Or First inteface Not Loopback Inteface
 firstNotLoIface=getEth0OrFirstNotLoIface();
